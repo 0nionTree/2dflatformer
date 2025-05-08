@@ -196,7 +196,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -633,37 +633,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!1 &27136106
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 27136107}
-  m_Layer: 0
-  m_Name: Monster2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &27136107
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27136106}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &697140352
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +783,7 @@ GameObject:
   - component: {fileID: 796003478}
   - component: {fileID: 796003477}
   - component: {fileID: 796003476}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,11 +802,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412cfbe7e438d834bb51e2940302016e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  minX: -7
-  maxX: 7
-  minY: -7
-  maxY: 7
+  horizontalSpeed: 20
+  verticalSpeed: 3
+  minX: -8
+  maxX: 9
+  minY: -1
+  maxY: 5
+  tilemapLayerName: Ground
+  playerLayerName: Player
 --- !u!58 &796003477
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -944,10 +916,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 8596640243658272642, guid: 5d4daff38e3d9174b873918abcf2c1d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -965,8 +937,8 @@ Transform:
   m_GameObject: {fileID: 796003475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.56, y: -3, z: 0}
+  m_LocalScale: {x: 4, y: 6, z: 9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -984,7 +956,7 @@ GameObject:
   - component: {fileID: 1247675359}
   - component: {fileID: 1247675358}
   - component: {fileID: 1247675357}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,16 +972,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1247675356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3604c5381581294399df66ef60a8c8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 61800cec3e9b6c84e9114d3e7c11b015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 4
-  jumpAngle: 60
+  moveSpeed: 7
+  stationaryJumpForce: 6
+  movingJumpForce: 7
+  jumpAngle: 80
   maxJumpCount: 2
   dashSpeed: 20
   dashDuration: 0.2
-  tapThreshold: 0.3
+  jumpHoldGravityScale: 0.5
+  maxJumpHoldTime: 9
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1140,8 +1114,8 @@ Transform:
   m_GameObject: {fileID: 1247675356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.13, y: -1.48, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1333429400}
@@ -1156,7 +1130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1333429400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1276,4 +1250,3 @@ SceneRoots:
   - {fileID: 1918015586}
   - {fileID: 1667074382}
   - {fileID: 796003480}
-  - {fileID: 27136107}
