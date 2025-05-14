@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Stage_Tutorial
   m_EditorClassIdentifier: 
   level: 0
-  startX: -20
-  startY: -14.25
+  start: {x: -21, y: -14.2}
   minCameraBounds: {x: -30, y: -20}
   maxCameraBounds: {x: 10, y: 0}

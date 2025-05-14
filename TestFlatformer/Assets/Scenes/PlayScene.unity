@@ -598,6 +598,7 @@ MonoBehaviour:
   stageList:
   - {fileID: 11400000, guid: e722e4acfcd86a74d9de62a8ccc25533, type: 2}
   - {fileID: 11400000, guid: b5e37eb466074184881a5fd460d53264, type: 2}
+  characterTransform: {fileID: 1937710680}
   CameraFollow: {fileID: 1485290612}
 --- !u!1 &1485290607
 GameObject:
@@ -750,8 +751,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1937710680}
-  minBounds: {x: 0, y: 0}
-  maxBounds: {x: 0, y: 0}
+  minBounds: {x: -30, y: -20}
+  maxBounds: {x: 10, y: 0}
   useBounds: 1
   followSmoothSpeed: 0.125
 --- !u!1 &1611672328
@@ -9061,7 +9062,7 @@ Transform:
   m_GameObject: {fileID: 1937710675}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21, y: -14.25, z: 0}
+  m_LocalPosition: {x: -21, y: -10.8, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
