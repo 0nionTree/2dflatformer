@@ -17,15 +17,19 @@ public class TitleManager : MonoBehaviour
                 title_Botton[0].SetActive(false);
                 title_Botton[1].SetActive(true);
                 title_Botton[2].SetActive(true);
-                if (true)   // 수정 : 세이브 파일이 없을경우
+                if (!(DataManager.Instance.isSave()))   // 수정 : 세이브 파일이 없을경우
                 {
                     title_Botton[2].GetComponent<Botton_Title>().canUseBotton = false;
                     title_Botton[2].GetComponent<Image>().color = lockColor;
                 }
                 break;
             case 1:
+                DataManager.Instance.SaveGame();
+                SceneLoader.Instance.LoadScene("PlayScene");
                 break;
             case 2:
+                DataManager.Instance.LoadSave();
+                SceneLoader.Instance.LoadScene("PlayScene");
                 break;
         }
     }
