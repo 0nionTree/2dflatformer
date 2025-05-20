@@ -42,7 +42,7 @@ public class MonsterWander : MonoBehaviour
         {
             case 0:
                 dir = Vector2.right;
-                speed = verticalSpeed;
+                speed = horizontalSpeed;
                 if (pos.x >= maxX) state = 1;
                 break;
             case 1:
@@ -57,7 +57,7 @@ public class MonsterWander : MonoBehaviour
                 break;
             case 3:
                 dir = Vector2.down;
-                speed = horizontalSpeed;
+                speed = verticalSpeed;
                 if (pos.y <= minY) state = 0;
                 break;
             default:
